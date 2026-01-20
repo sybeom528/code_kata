@@ -3,14 +3,20 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/120842
 # 알고리즘: 기초
 # 작성자: 서윤범
-# 작성일: 2026. 01. 20. 20:47:07
+# 작성일: 2026. 01. 20. 20:48:17
 
-def solution(num_list, n):
+# def solution(num_list, n):
+#     answer = []
+#     for i in range(0,len(num_list),n):
+#         tmp = []
+#         for j in range(i, i + n):
+#             tmp.append(num_list[j])
+#         answer.append(tmp)
+        
+#     return answer
+
+def solution(num_list,n):
     answer = []
     for i in range(0,len(num_list),n):
-        tmp = []
-        for j in range(i, i + n):
-            tmp.append(num_list[j])
-        answer.append(tmp)
-        
+        answer.append(num_list[i:i+n])
     return answer
