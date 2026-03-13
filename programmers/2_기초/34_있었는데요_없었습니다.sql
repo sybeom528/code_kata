@@ -1,0 +1,27 @@
+-- 있었는데요 없었습니다
+-- 프로그래머스 기초 (⭐⭐)
+-- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/59043
+-- 작성자: 서윤범
+-- 작성일: 2026. 03. 13. 18:29:54
+
+# SELECT I.ANIMAL_ID, I.NAME FROM ANIMAL_INS AS I
+# JOIN ANIMAL_OUTS AS O
+# ON I.ANIMAL_ID = O.ANIMAL_ID
+# WHERE I.DATETIME > O.DATETIME
+# ORDER BY I.DATETIME
+
+
+
+
+
+
+
+
+SELECT I.ANIMAL_ID, I.NAME FROM ANIMAL_INS AS I
+JOIN ANIMAL_OUTS AS O
+ON I.ANIMAL_ID = O.ANIMAL_ID
+AND O.DATETIME < I.DATETIME
+ORDER BY I.DATETIME
+
+
+
