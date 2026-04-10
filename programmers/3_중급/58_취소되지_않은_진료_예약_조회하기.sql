@@ -1,0 +1,39 @@
+-- 취소되지 않은 진료 예약 조회하기
+-- 프로그래머스 중급 (⭐⭐⭐)
+-- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/132204
+-- 작성자: 서윤범
+-- 작성일: 2026. 04. 10. 17:58:29
+
+# SELECT A.APNT_NO, P.PT_NAME, P.PT_NO, A.MCDP_CD, D.DR_NAME, A.APNT_YMD
+# FROM PATIENT AS P
+# JOIN APPOINTMENT AS A
+# ON P.PT_NO = A.PT_NO
+# JOIN DOCTOR AS D
+# ON A.MDDR_ID = D.DR_ID
+# WHERE DATE_FORMAT(A.APNT_YMD, '%Y-%m-%d') = '2022-04-13'
+# AND A.MCDP_CD = 'CS'
+# AND A.APNT_CNCL_YMD IS NULL
+# ORDER BY A.APNT_YMD
+
+
+SELECT A.APNT_NO, P.PT_NAME, P.PT_NO, A.MCDP_CD, D.DR_NAME, A.APNT_YMD FROM APPOINTMENT AS A
+JOIN DOCTOR AS D
+ON A.MDDR_ID = D.DR_ID
+JOIN PATIENT AS P
+ON A.PT_NO = P.PT_NO
+WHERE A.MCDP_CD = 'CS'
+AND DATE_FORMAT(A.APNT_YMD, '%Y-%m-%d') = '2022-04-13'
+AND A.APNT_CNCL_YN = 'N'
+ORDER BY A.APNT_YMD
+
+
+
+
+
+
+
+
+
+
+
+
