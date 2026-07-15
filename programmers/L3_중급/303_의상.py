@@ -3,7 +3,9 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42578
 # 알고리즘: 해시, 수학
 # 작성자: 서윤범
-# 작성일: 2026. 07. 15. 20:08:46
+# 작성일: 2026. 07. 15. 20:09:56
+
+import math
 
 def solution(clothes):
     
@@ -19,8 +21,6 @@ def solution(clothes):
     for key in clo_dict.keys():
         length.append(len(clo_dict[key]) + 1)
         
-    answer = 1
-    for num in length:
-        answer *= num
+    answer = math.prod(length)
     
     return answer - 1
