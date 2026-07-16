@@ -3,7 +3,7 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42587
 # 알고리즘: 스택/큐
 # 작성자: 서윤범
-# 작성일: 2026. 07. 16. 13:01:40
+# 작성일: 2026. 07. 16. 13:01:52
 
 from collections import defaultdict
 import heapq
@@ -27,7 +27,7 @@ def solution(priorities, location):
             else:
                 heapq.heappush(hq, [tmp, tmp])
         while hq:
-            a, now_idx = heapq.heappop(hq)
+            _, now_idx = heapq.heappop(hq)
             answer += 1
             if now_idx == location:
                 chk = True
