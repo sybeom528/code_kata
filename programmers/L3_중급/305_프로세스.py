@@ -3,7 +3,7 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42587
 # 알고리즘: 스택/큐
 # 작성자: 서윤범
-# 작성일: 2026. 07. 16. 13:01:15
+# 작성일: 2026. 07. 16. 13:01:40
 
 from collections import defaultdict
 import heapq
@@ -21,7 +21,6 @@ def solution(priorities, location):
     for k in sorted(dic, key = lambda x: -x):
         tmp_list = dic[k]
         hq = []
-        heapq.heapify(hq)
         for tmp in tmp_list:
             if tmp < now_idx:
                 heapq.heappush(hq, [length + tmp, tmp])
@@ -35,6 +34,5 @@ def solution(priorities, location):
                 break
         if chk:
             break
-        
         
     return answer
