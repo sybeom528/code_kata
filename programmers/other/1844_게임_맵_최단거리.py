@@ -2,15 +2,13 @@
 # 프로그래머스 (unknown)
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/1844
 # 작성자: 서윤범
-# 작성일: 2026. 07. 18. 16:18:19
+# 작성일: 2026. 07. 18. 16:19:03
 
 from collections import deque
 
 def solution(maps):
     
     n = len(maps); m = len(maps[0])
-    if maps[n-1][m-2] == 0 and maps[n-2][m-1] == 0:
-        return -1
     
     queue = deque()
     maps[0][0] = 1
@@ -29,3 +27,5 @@ def solution(maps):
             if 0 <= next_x < n and 0 <= next_y < m and maps[next_x][next_y] == 1:
                 maps[next_x][next_y] = maps[x][y] + 1
                 queue.append((next_x, next_y))
+                
+    return -1
