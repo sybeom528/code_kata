@@ -3,7 +3,7 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/87946
 # 알고리즘: 완전탐색, 백트래킹
 # 작성자: 서윤범
-# 작성일: 2026. 07. 19. 17:36:18
+# 작성일: 2026. 07. 19. 17:37:43
 
 from collections import deque
 
@@ -25,8 +25,8 @@ def solution(k, dungeons):
                 temp = visited.copy()
                 temp.append(i)
                 queue.append((now_hp - dungeons[i][1], temp, cnt + 1))
-            if final_chk:
-                if cnt > answer:
-                    answer = cnt
+        if final_chk:
+            if cnt > answer:
+                answer = cnt
                 
     return answer
