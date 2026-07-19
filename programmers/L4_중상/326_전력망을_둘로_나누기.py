@@ -3,7 +3,7 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/86971
 # 알고리즘: DFS/BFS, 그래프
 # 작성자: 서윤범
-# 작성일: 2026. 07. 19. 18:15:07
+# 작성일: 2026. 07. 19. 18:15:18
 
 from collections import deque
 import sys
@@ -16,8 +16,7 @@ def solution(n, wires):
     for s,e in wires:
         tree[s].append(e)
         tree[e].append(s)
-    
-    print(tree)
+
     def BFS(i):
         queue = deque()
         visited = [False] * (n + 1)
