@@ -3,7 +3,7 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42895
 # 알고리즘: DP
 # 작성자: 서윤범
-# 작성일: 2026. 07. 20. 17:25:40
+# 작성일: 2026. 07. 20. 17:26:53
 
 def solution(N, number):
     
@@ -18,12 +18,9 @@ def solution(N, number):
         for j in range(1,i):
             for num1 in DP[j]:
                 for num2 in DP[i-j]:
-                    plus = num1 + num2
-                    minus = num1 - num2
-                    prod = num1 * num2
+                    temp = [num1 + num2, num1 - num2, num1 * num2]
                     if num2 != 0:
-                        devide = num1 // num2
-                    temp = [plus, minus, prod, devide]
+                        temp.append(num1 // num2)
                     DP[i].extend(temp)
         DP[i] = list(set(DP[i]))
         DP[i].append(int(str(N) * i))
