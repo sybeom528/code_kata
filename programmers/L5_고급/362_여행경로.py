@@ -3,7 +3,7 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/43164
 # 알고리즘: DFS, 그래프
 # 작성자: 서윤범
-# 작성일: 2026. 07. 18. 16:06:32
+# 작성일: 2026. 07. 23. 18:19:38
 
 def solution(tickets):
     
@@ -11,21 +11,59 @@ def solution(tickets):
     n = len(tickets)
     visited = [False] * n
     
-    def DFS(path):
+    def DFS(city):
         if sum(visited) == n:
-            return path
+            return city
         
-        for i, (s,e) in enumerate(tickets):
-            if not visited[i] and path[-1] == s:
+        for i, (prev, next) in enumerate(tickets):
+            if not visited[i] and prev == city[-1]:
                 visited[i] = True
-                path.append(e)
-                result = DFS(path)
+                city.append(next)
+                result = DFS(city)
                 if result:
                     return result
+                city.pop()
                 visited[i] = False
-                path.pop()
     
     return DFS(['ICN'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def solution(tickets):
+    
+#     tickets.sort()
+#     n = len(tickets)
+#     visited = [False] * n
+    
+#     def DFS(path):
+#         if sum(visited) == n:
+#             return path
+        
+#         for i, (s,e) in enumerate(tickets):
+#             if not visited[i] and path[-1] == s:
+#                 visited[i] = True
+#                 path.append(e)
+#                 result = DFS(path)
+#                 if result:
+#                     return result
+#                 visited[i] = False
+#                 path.pop()
+    
+#     return DFS(['ICN'])
     
     
 
