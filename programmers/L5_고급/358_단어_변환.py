@@ -3,34 +3,81 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/43163
 # 알고리즘: DFS/BFS
 # 작성자: 서윤범
-# 작성일: 2026. 07. 18. 15:30:06
+# 작성일: 2026. 07. 23. 18:03:18
 
 from collections import deque
 
 def solution(begin, target, words):
+    
     if target not in words:
         return 0
     
-    n = len(begin)
-    visited = {begin}
+    n = len(words)
+    
+    answer = 0
+    visited = [False] * n
+    
     queue = deque()
-    queue.append((begin, 0))
+    queue.append((0,begin))
     
     while queue:
-        word, cnt = queue.popleft()
-        
+        cnt, word = queue.popleft()
         if word == target:
             return cnt
+        for i in range(n):
+            if not visited[i]:
+                chk = 0
+                for s1, s2 in zip(word, words[i]):
+                    if s1 != s2:
+                        chk += 1
+                if chk == 1:
+                    queue.append((cnt + 1, words[i]))
+                    visited[i] = True
+    
+    return answer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# from collections import deque
+
+# def solution(begin, target, words):
+#     if target not in words:
+#         return 0
+    
+#     n = len(begin)
+#     visited = {begin}
+#     queue = deque()
+#     queue.append((begin, 0))
+    
+#     while queue:
+#         word, cnt = queue.popleft()
         
-        for next_word in words:
-            if next_word in visited:
-                continue
-            diff = sum(1 for a, b in zip(word, next_word) if a != b)
-            if diff == 1:
-                visited.add(next_word)
-                queue.append((next_word, cnt + 1))
+#         if word == target:
+#             return cnt
+        
+#         for next_word in words:
+#             if next_word in visited:
+#                 continue
+#             diff = sum(1 for a, b in zip(word, next_word) if a != b)
+#             if diff == 1:
+#                 visited.add(next_word)
+#                 queue.append((next_word, cnt + 1))
                 
-    return 0
+#     return 0
 
 
 
