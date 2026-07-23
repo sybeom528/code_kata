@@ -3,17 +3,45 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42747
 # 알고리즘: 정렬
 # 작성자: 서윤범
-# 작성일: 2026. 07. 16. 15:50:34
+# 작성일: 2026. 07. 23. 17:30:58
 
 def solution(citations):
+    answer = 0
+    n = len(citations)
     
     citations.sort(reverse = True)
-    h = 0
     
-    for i, c in enumerate(citations):
-        if c >= i + 1:
-            h += 1
+    for i, cite in enumerate(citations):
+        if cite >= i + 1:
+            answer += 1
         else:
             break
+
+    return answer
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def solution(citations):
+    
+#     citations.sort(reverse = True)
+#     h = 0
+    
+#     for i, c in enumerate(citations):
+#         if c >= i + 1:
+#             h += 1
+#         else:
+#             break
             
-    return h
+#     return h
