@@ -3,7 +3,7 @@
 # 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/92341
 # 알고리즘: 해시, 시뮬레이션
 # 작성자: 서윤범
-# 작성일: 2026. 07. 24. 13:18:58
+# 작성일: 2026. 07. 24. 13:19:10
 
 # fees : [기본 시간(분), 기본 요금(원), 단위 시간(분), 단위 요금(원)]
 
@@ -26,7 +26,6 @@ def solution(fees, records):
         else:
             dic[num][-1][1] = time
         
-    print(dic)
     for key in sorted(dic.keys()):
         cum_time = 0
         for a,b in dic[key]:
