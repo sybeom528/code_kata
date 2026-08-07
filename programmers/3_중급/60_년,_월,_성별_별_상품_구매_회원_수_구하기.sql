@@ -1,0 +1,14 @@
+-- 년, 월, 성별 별 상품 구매 회원 수 구하기
+-- 프로그래머스 중급 (⭐⭐⭐)
+-- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131532
+-- 작성자: 서윤범
+-- 작성일: 2026. 08. 07. 17:43:24
+
+SELECT YEAR(O.SALES_DATE) AS YEAR, MONTH(O.SALES_DATE) AS MONTH, 
+I.GENDER, COUNT(DISTINCT I.USER_ID) AS USERS
+FROM ONLINE_SALE AS O
+JOIN USER_INFO AS I
+ON O.USER_ID = I.USER_ID
+WHERE I.GENDER IS NOT NULL
+GROUP BY YEAR, MONTH, I.GENDER
+ORDER BY YEAR, MONTH, I.GENDER
