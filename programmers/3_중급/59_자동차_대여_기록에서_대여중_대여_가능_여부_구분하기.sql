@@ -1,0 +1,19 @@
+-- 자동차 대여 기록에서 대여중 / 대여 가능 여부 구분하기
+-- 프로그래머스 중급 (⭐⭐⭐)
+-- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/157340
+-- 작성자: 서윤범
+-- 작성일: 2026. 08. 07. 16:49:36
+
+WITH CTE1 AS (SELECT CAR_ID, START_DATE, END_DATE
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+WHERE DATE_FORMAT(START_DATE, '%Y-%m-%d') <= '2022-10-16'
+AND DATE_FORMAT(END_DATE, '%Y-%m-%d') >= '2022-10-16')
+SELECT DISTINCT(O.CAR_ID),
+CASE
+    WHEN C.CAR_ID IS NULL THEN '대여 가능'
+    ELSE '대여중'
+END AS AVAILABILITY
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY AS O
+LEFT JOIN CTE1 AS C
+ON O.CAR_ID = C.CAR_ID
+ORDER BY CAR_ID DESC
