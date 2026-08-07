@@ -1,0 +1,14 @@
+-- 즐겨찾기가 가장 많은 식당 정보 출력하기
+-- 프로그래머스 중급 (⭐⭐⭐)
+-- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131123
+-- 작성자: 서윤범
+-- 작성일: 2026. 08. 07. 15:15:12
+
+WITH CTE AS (SELECT FOOD_TYPE, MAX(FAVORITES) AS FAVORITES FROM REST_INFO
+GROUP BY FOOD_TYPE)
+SELECT C.FOOD_TYPE, I.REST_ID, I.REST_NAME, C.FAVORITES
+FROM REST_INFO AS I
+JOIN CTE AS C
+ON I.FOOD_TYPE = C.FOOD_TYPE
+AND I.FAVORITES = C.FAVORITES
+ORDER BY FOOD_TYPE DESC
