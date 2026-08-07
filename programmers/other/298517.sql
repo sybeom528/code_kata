@@ -2,20 +2,9 @@
 -- 프로그래머스 (미등록 문제)
 -- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/298517
 -- 작성자: 서윤범
--- 작성일: 2026. 06. 15. 12:05:04
+-- 작성일: 2026. 08. 07. 17:45:42
 
-# SELECT ID, COALESCE(LENGTH,10) AS LENGTH FROM FISH_INFO
-# ORDER BY LENGTH DESC, ID ASC
-# LIMIT 10
-
-
-SELECT ID, COALESCE(LENGTH,10) AS LENGTH FROM FISH_INFO
-ORDER BY LENGTH DESC, ID ASC
+SELECT ID, LENGTH
+FROM FISH_INFO
+ORDER BY LENGTH DESC, ID
 LIMIT 10
-
-
-
-
-
-
-
